@@ -9,18 +9,31 @@ package parkingsystem;
  * @author Administrator
  */
 public class Parking {
-    private final int max_row = 10;
-    private final int max_column = 10;
+    private int max_row = 10;
+    private int max_column = 10;
     private Slots [][]slots = new Slots[max_row][max_column];
     private int used_slot = 0;
     private int capacity = max_row*max_column;
     
     public Parking(){
+        //tao slot khi parking duoc tao
         for (int i = 0; i< max_row; i++){
             for (int j = 0; j< max_column; j++){
 		slots[i][j] = new Slots(i*10+(j+1));
             }
 	}
+    }
+    public void setMaxRow(int r){
+        max_row = r;
+    }
+    public int getMaxRow(){
+        return max_row;
+    }
+    public void setMaxColumn(int c){
+        max_column = c;
+    }
+    public int getMaxColumn(){
+        return max_column;
     }
     
     public int getUsedSlot(){
@@ -53,11 +66,21 @@ public class Parking {
                     used_slot++;
                     return;
                 }    
+                if (used_slot == getCapacity())
+                    System.out.println("The Parking Lot is full.");
             }
 	}
     }
     
     public void freeSlot(Slots s){
-        if (s.getVehicleInformation() == )
+        if (used_slot<1){
+            System.out.println("There is no vehicle in Parking Lot");
+        }
+        else{
+            s.removeVehicle();
+            System.out.println("Slot "+s.getSlotNumber()+" is available.");
+            used_slot--;
+        }
+        
     }
 }

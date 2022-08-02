@@ -4,11 +4,13 @@
  */
 package parkingsystem;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrator
  */
-public class Ticket {
+public class Ticket implements Serializable {
     private static int count = 0;
     private int ticketID;
     private Vehicle vehicle;
@@ -33,6 +35,10 @@ public class Ticket {
     
     public double getPrice(){
         return price;
+    }
+    
+    public Slots getSlot(){
+        return slot;
     }
     
     public String toString(){

@@ -4,16 +4,20 @@
  */
 package parkingsystem;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrator
  */
-public class Vehicle {
+public class Vehicle implements Serializable {
+    public static int count = 0;
     protected String lic_Plate;
     protected Ticket ticket;
 
     public Vehicle(){
         lic_Plate = "36" + StringAlpha(1) + StringNumer(5);
+        count++;
     }
     
     public void setLicPlate(String a){

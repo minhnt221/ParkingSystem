@@ -4,11 +4,13 @@
  */
 package parkingsystem;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrator
  */
-public class Slots {
+public class Slots implements Serializable {
     private Vehicle v;
     private int slotNumber;
     private boolean is_avai;
